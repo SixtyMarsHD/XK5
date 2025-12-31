@@ -1,7 +1,35 @@
 local XK5 = {}
+local PLAYERS = game.Players
+local Player = PLAYERS.LocalPlayer
+local PlayerGui = Player.PlayerGui
 
-function XK5.load()
-	game.Players.LocalPlayer:Kick()
+local function CreateElement(Element, properties)
+	local element = Instance.new(Element)
+	if properties then 
+		for property, value in pairs(properties) do
+			element[property] = value
+		end
+	end
+
+	return element
+end
+
+
+function XK5:MakeWindow()
+	
+	local ScreenGui = CreateElement("ScreenGui", {
+		Name = "XK5Gui",
+		Parent = PlayerGui
+	})
+
+	local Frame = CreateElement("Frame", {
+		Parent = ScreenGui,
+		Size = UDim2.fromScale(0.4, 0.4),
+		Position = UDim2.fromScale(0.3, 0.3),
+		BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	})
+
+	return ScreenGui
 end
 
 return XK5
