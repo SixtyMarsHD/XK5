@@ -1,3 +1,7 @@
-function load()
+local XK5 = {}
+
+function XK5.load()
 	game.Players.LocalPlayer:Kick()
 end
+
+return XK5
